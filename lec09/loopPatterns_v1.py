@@ -56,7 +56,7 @@ def printPowersOfTwo(ll):
     ''' Input: list (ll): [1, 2, 4, 5, 10, 15]
         Output: 1 4 10 
 
-    for i in [0, 2, 4, ....len(ll)-1]
+    for i in [0, 2, 4, ....index of last element]
         print the element of ll at index i
       
     '''    
@@ -73,7 +73,7 @@ def printTwoAtATime(ll):
         Output: 1  2
                 4  5
                 10 15
-        for i in [0, 2, 4, ....len(ll)-1]
+        for i in [0, 2, 4, ....index of the last element]
             print element and index i and element at index i+1
       
     '''
