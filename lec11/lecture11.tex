@@ -1,0 +1,190 @@
+\documentclass{beamer}
+
+% for themes, etc.
+
+ \usetheme{default} 
+
+%\usepackage{times} % fonts are up to you
+\usepackage{graphicx}
+\usepackage{verbatim}
+% these will be used later in the title page
+\title{Processing data in files}
+
+
+
+% have this if you'd like a recurring outline
+\AtBeginSection[] % "Beamer, do the following at the start of every section"
+{
+\begin{frame}<beamer> 
+\frametitle{Outline} % make a frame titled "Outline"
+\tableofcontents[currentsection] % show TOC and highlight current section
+\end{frame}
+}
+
+\begin{document}
+\bibliographystyle{plain}
+% this prints title, author etc. info from above
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Text Files}
+\begin{itemize}
+\item So far, most of our programs have retrieved data from the keyboard and written data to the screen
+\begin{itemize}
+\item Data must be entered on every program run
+\item Programs have no way to write permanent output
+\end{itemize}
+\item Text files provide convenient input/output storage
+\item e.g.\ programs can read configuration data or input files to process, and can write output to files
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{ConcepTest}
+A program is designed to retrieve some data from a file, process it, and output the revised data to another file. Which of the following functions/methods will {\bf not} be called in the program?
+
+\begin{itemize}
+\item A. \verb|open|
+\item B. A loop or method for reading (e.g.\ \verb|read|)
+\item C. \verb|write|
+\item D. \verb|close|
+\item E. All should be called
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reading Files with Methods}
+Several methods for reading text from files:
+\begin{itemize}
+\item \verb|readline|: reads and returns next line; returns empty string at end-of-file
+\item \verb|read|: reads the entire file into one string
+\item \verb|readlines|: reads the entire file into a list of strings
+\end{itemize}
+
+All of these leave a trailing \verb|'\n'| character at the end of each line.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reading Files with Loops}
+A file is a sequence of lines:
+\begin{small}
+\begin{verbatim}
+f = open('songs.txt')
+for line in f:
+  print(line.strip())
+\end{verbatim}
+\end{small}
+
+$\ldots$ or using a while-loop:
+\begin{small}
+\begin{verbatim}
+f = open('songs.txt')
+line = f.readline()
+while line:
+  print(line.strip())
+  line = f.readline()
+\end{verbatim}
+\end{small}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{ConcepTest}
+Here are the first few lines of \verb|songs.txt|:
+\begin{small}
+\begin{verbatim}
+Songs Chosen this Semester
+#Game names for the songs
+#All ridiculously good soundtracks
+Sep, 17, Chrono Cross
+Sep, 19, Zelda 3
+\end{verbatim}
+\end{small}
+
+\begin{scriptsize}
+\verbatiminput{skip1.py}
+\end{scriptsize}
+
+\verb|f| refers to this file and has just been opened. What does \verb|skip| return?
+\begin{itemize}
+\item A. The first line
+\item B. The second line
+\item C. The third line
+\item D. The fourth line
+\item E. The fifth line
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{ConcepTest}
+Here are the first few lines of \verb|songs.txt|:
+\begin{small}
+\begin{verbatim}
+Songs Chosen this Semester
+#Game names for the songs
+#All ridiculously good soundtracks
+Sep, 17, Chrono Cross
+Sep, 19, Zelda 3
+\end{verbatim}
+\end{small}
+
+\begin{scriptsize}
+\verbatiminput{skip2.py}
+\end{scriptsize}
+
+\verb|f| refers to this file and has just been opened. What does \verb|skip| return?
+\begin{itemize}
+\item A. The first line
+\item B. The second line
+\item C. The third line
+\item D. The fourth line
+\item E. The fifth line
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Multi-Field Records}
+\begin{itemize}
+\item So far, we have been reading entire lines from our file
+\item But, our lines are actually records containing three fields: month name, day number, and game name
+\item Let's write a function to read this data into three lists
+\item The critical string method here is \verb|split|
+\begin{itemize}
+\item With no parameters, it splits around any space
+\item With a string parameter, it splits around that string
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Writing to files}
+
+\begin{itemize}
+\item In order to write to a file, the file must be opened for writing
+\verb|f = open('writeSongs.txt','w')|
+\item \verb|write(s)|: writes the string to the file
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Coding exercise: Replace words}
+Create a new file that reads a given file and replaces all the occurrences of one word by another
+\begin{small}
+\begin{verbatim}
+def replaceWord(infileName, outfileName, oldWord, newWord):
+	'''
+     create a new file with the name outfileName that has the
+     same content as infileName, but every occurrence of
+     oldWord replaced by newWord
+	'''
+\end{verbatim}
+\end{small}
+
+
+\end{frame}
+
+\end{document}
