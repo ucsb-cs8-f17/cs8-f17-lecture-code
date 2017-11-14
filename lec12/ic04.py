@@ -10,8 +10,27 @@ def maskedPassword(pw):
   return `pw` without any modification (YOU MAY ASSUME `pw` is of
   type `str`)
   '''
-  return "42"
+  if len(pw)<=3:
+    return pw
+  result1 = pw[0:3] # Trying to get the first three letters
+  result2 = ''
+  for i in range((len(pw)-3)):
+    result2= result2.lower()
+    result2 = result2 +'x'# Trying to generate N 'x's
   
+  return result1+result2
+
+def test_maskedPassword_0():
+  assert(maskedPassword("hello") =="helxx" )
+
+def test_maskedPassword_1():
+  assert(maskedPassword("hi") == "hi" )
+
+def test_maskedPassword_2():
+  assert(maskedPassword("password123") == "pasxxxxxxxx")
+
+def test_maskedPassword_3():
+  assert(maskedPassword("hie") == "hie" )
 
   
 def isValidPassword(pw):
@@ -35,13 +54,32 @@ def minOfTwoLists(alist, blist):
   other than numbers (either int or float) or if they are not of
   the same length
   '''
-  return "42"
+  if type(alist)!=list:
+    raise ValueError("first parameter is not a list")
+
+  if type(blist)!=list:
+    raise ValueError("second parameter is not a list")
+  if len(alist)!=len(blist):
+    raise ValueError("length of lists are not equal")
+
+  result=[]
+  
+  for i in range(len(alist)):
+    if not (type(alist[i])==int or type(alist[i])==float):   #alist[i] is not a number
+      raise ValueError("alist has a non-numeric element)
+    if alist[i]<blist[i]:
+      result.append(alist[i])
+    else:
+      result.append(blist[i])
+    #blah blah blah
+    
+  return result
 
 def test_minOfTwoLists_0():
-  assert([1, 3, 5], [20, 7, 2.5])==pytest.approx([1,3,2.5]))
+  assert(minOfTwoLists([1, 3, 5], [20, 7, 2.5])==pytest.approx([1,3,2.5]))
 
 def test_minOfTwoLists_1():
-  assert([1, 30, 5], [20, 7, 2.5])==pytest.approx([1,7,2.5]))
+  assert(minOfTwoLists([1, 30, 5], [20, 7, 2.5])==pytest.approx([1,7,2.5]))
 
 
 
