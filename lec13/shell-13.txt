@@ -1,0 +1,31 @@
+>>> kinds = ['falcon','hawk','sparrow','woodpecker']
+>>> counts = [5, 8, 2, 1]
+>>> counts = [5, 8, 2, 1]
+>>> mykinds = ['falcon','hawk','sparrow','woodpecker']
+>>> mycounts = [5, 8, 2, 1]
+>>> new_sighting_0(mykinds, mycounts, 'peacock')
+>>> mykinds
+['falcon', 'hawk', 'sparrow', 'woodpecker', 'peacock']
+>>> mycounts = [5, 8, 2, 1]
+>>> new_sighting_0(mykinds, mycounts, 'peacock')
+Traceback (most recent call last):
+  File "<pyshell#8>", line 1, in <module>
+    new_sighting_0(mykinds, mycounts, 'peacock')
+  File "/Users/yoga/git/cs8-f17-lecture-code/lec13/bird_sighting.py", line 9, in new_sighting_0
+    counts[ind] = counts[ind] + 1
+IndexError: list index out of range
+>>> mykinds = ['falcon','hawk','sparrow','woodpecker']
+>>> mycounts = [5, 8, 2, 1]
+>>> new_sighting_0(mykinds, mycounts, 'peacock')
+>>> mykinds
+['falcon', 'hawk', 'sparrow', 'woodpecker', 'peacock']
+>>> mycounts
+[5, 8, 2, 1, 1]
+>>> mybirds = {'falcon':5,'hawk':8,'sparrow':2,'woodpecker':1}
+>>> new_sighting_1(mybirds, 'peacock')
+>>> mybirds
+{'falcon': 5, 'hawk': 8, 'sparrow': 2, 'woodpecker': 1, 'peacock': 1}
+>>> new_sighting_1(mybirds, 'peacock')
+>>> mybirds
+{'falcon': 5, 'hawk': 8, 'sparrow': 2, 'woodpecker': 1, 'peacock': 2}
+
