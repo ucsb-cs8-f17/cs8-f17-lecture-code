@@ -21,3 +21,8 @@ def test_count_ae_1():
 def test_count_ae_2():
   assert(count_ae("Santa Ynez")==3)  
 
+def secondSmallest(alist):
+  copylist = list(alist)
+  copylist.sort()
+  return copylist[1]
+  

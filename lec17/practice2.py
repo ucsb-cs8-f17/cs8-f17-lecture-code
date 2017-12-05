@@ -31,8 +31,6 @@ def indexOfOddLengthString(alist):
       result.append(index)
   return result
 
-# A: Know how to change the code
-# B: Don't know how to change the code to get the right
 
 def test_indexOfOddLengthString_0():
   assert(indexOfOddLengthString(['ox'])==[])
